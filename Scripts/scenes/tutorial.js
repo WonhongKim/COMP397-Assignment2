@@ -21,7 +21,9 @@ var scenes;
         // private methods
         // public methods
         Tutorial.prototype.Start = function () {
-            this._playButton = new objects.Button("StartButton", config.Screen.HALF_WIDTH, 360, true);
+            this._startButton = new createjs.Bitmap(managers.Game.AssetManager.getResult("playbutton"));
+            this._startButton.x = 650;
+            this._startButton.y = 470;
             this.Main();
         };
         Tutorial.prototype.Update = function () {
@@ -33,8 +35,8 @@ var scenes;
         };
         Tutorial.prototype.Main = function () {
             console.log("Tutorial - Tutorial");
-            this.addChild(this._playButton);
-            this._playButton.on("click", function () {
+            this.addChild(this._startButton);
+            this._startButton.on("click", function () {
                 managers.Game.CurrentState = config.Scene.PLAY;
             }, this);
         };

@@ -36,7 +36,7 @@ var objects;
         Plane.prototype.Start = function () {
             this.regX = this.halfWidth;
             this.regY = this.halfHeight;
-            this.y = 430;
+            this.y = 560;
         };
         Plane.prototype.Update = function () {
             this.x = managers.Game.Stage.mouseX;

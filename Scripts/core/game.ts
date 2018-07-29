@@ -41,11 +41,14 @@
         
 
     let Manifest = [
+        {id: "mainmenu", src:"/Assets/images/mainmenu.png"},
+        {id: "playbutton", src:"/Assets/images/play.png"},
         {id: "textureAtlas", src:"/Assets/sprites/textureAtlas.png"},
         {id: "ocean", src:"/Assets/images/ocean.gif"},
         {id: "yay", src:"/Assets/audio/yay.ogg"},
         {id: "thunder", src:"/Assets/audio/thunder.ogg"},
         {id: "engine", src:"/Assets/audio/engine.ogg"}
+       
     ]
 
 

@@ -2,7 +2,8 @@ module scenes {
     export class Start extends objects.Scene {
         // member variables
         
-        private _startButton: objects.Button;
+        private _background: createjs.Bitmap;
+        private _startButton: createjs.Bitmap;
        
 
         // constructors
@@ -17,9 +18,12 @@ module scenes {
         // public methods
         public Start():void {
 
-            
-            
-            this._startButton = new objects.Button("StartButton", config.Screen.HALF_WIDTH, 360, true);
+                
+            this._background = new createjs.Bitmap(managers.Game.AssetManager.getResult("mainmenu"));
+            this._startButton = new createjs.Bitmap(managers.Game.AssetManager.getResult("playbutton"));
+            this._startButton.x = 650;
+            this._startButton.y = 470;
+        
 
             this.Main();
         }
@@ -39,7 +43,7 @@ module scenes {
         public Main():void {
             console.log(`Starting - START SCENE`);
             
-           
+            this.addChild(this._background);
             this.addChild(this._startButton);
 
             this._startButton.on("click", function(){
