@@ -21,6 +21,7 @@ var scenes;
         // private methods
         // public methods
         Tutorial.prototype.Start = function () {
+            this._background = new createjs.Bitmap(managers.Game.AssetManager.getResult("tutorial"));
             this._startButton = new createjs.Bitmap(managers.Game.AssetManager.getResult("playbutton"));
             this._startButton.x = 650;
             this._startButton.y = 470;
@@ -35,6 +36,7 @@ var scenes;
         };
         Tutorial.prototype.Main = function () {
             console.log("Tutorial - Tutorial");
+            this.addChild(this._background);
             this.addChild(this._startButton);
             this._startButton.on("click", function () {
                 managers.Game.CurrentState = config.Scene.PLAY;

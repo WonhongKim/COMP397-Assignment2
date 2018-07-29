@@ -2,10 +2,12 @@ module scenes {
     export class Play extends objects.Scene {
         // member variables
         private _plane:objects.Plane;
-        private _ocean:objects.Ocean;
+        private _iceland:objects.Iceland;
         private _island:objects.Island;
-        private _clouds:objects.Cloud[];
-        private _cloudNum:number;
+       
+        private _bears:objects.Bear[];
+        private _bearNum:number;
+       
         
         public engineSound:createjs.AbstractSoundInstance;
 
@@ -15,11 +17,12 @@ module scenes {
 
             this.Start();
         }
-
         // private methods
-        private _buildClouds():void {
-            for (let count = 0; count < this._cloudNum; count++) {
-                this._clouds.push(new objects.Cloud());
+    
+
+        private _buildBears():void {
+            for (let count = 0; count < this._bearNum; count++) {
+                this._bears.push(new objects.Bear());
                 //this._clouds[count] = new objects.Cloud();
             }
         }
@@ -31,29 +34,30 @@ module scenes {
             this.engineSound.volume = 0.1;
 
 
-            this._plane = new objects.Plane();
-            this._ocean = new objects.Ocean();
+            this._plane = new objects.Plane();    
             this._island = new objects.Island();
+            this._iceland = new objects.Iceland();
 
             // creates an empty array of type Cloud
-            this._clouds = new Array<objects.Cloud>();
-            this._cloudNum = 3;
-
-            this._buildClouds();
+            this._bears = new Array <objects.Bear>();
+         
+            this._bearNum = 3;
+            
+            this._buildBears();
            
             this.Main();
         }
 
         public Update():void {
             this._plane.Update();
-            this._ocean.Update();
+            this._iceland.Update();
             this._island.Update();
 
             managers.Collision.check(this._plane, this._island);
 
-            this._clouds.forEach(cloud => {
-                cloud.Update();
-                managers.Collision.check(this._plane, cloud);
+            this._bears.forEach(bear => {
+                bear.Update();
+                managers.Collision.check(this._plane, bear);
             });
             
         }
@@ -71,7 +75,7 @@ module scenes {
             console.log(`Starting - PLAY SCENE`);
 
             // adding the ocean to the scene
-            this.addChild(this._ocean);
+            this.addChild(this._iceland);            
 
             // adding the island to the scene
             this.addChild(this._island);
@@ -80,8 +84,10 @@ module scenes {
             this.addChild(this._plane);
 
             // adding the cloud to the scene
-            for (const cloud of this._clouds) {
-                this.addChild(cloud);
+     
+
+            for (const bear of this._bears) {
+                this.addChild(bear);
             }
 
             this.addChild(managers.Game.ScoreBoardManager.LivesLabel);

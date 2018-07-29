@@ -19,9 +19,9 @@ var scenes;
             return _this;
         }
         // private methods
-        Play.prototype._buildClouds = function () {
-            for (var count = 0; count < this._cloudNum; count++) {
-                this._clouds.push(new objects.Cloud());
+        Play.prototype._buildBears = function () {
+            for (var count = 0; count < this._bearNum; count++) {
+                this._bears.push(new objects.Bear());
                 //this._clouds[count] = new objects.Cloud();
             }
         };
@@ -31,23 +31,23 @@ var scenes;
             this.engineSound.loop = -1;
             this.engineSound.volume = 0.1;
             this._plane = new objects.Plane();
-            this._ocean = new objects.Ocean();
             this._island = new objects.Island();
+            this._iceland = new objects.Iceland();
             // creates an empty array of type Cloud
-            this._clouds = new Array();
-            this._cloudNum = 3;
-            this._buildClouds();
+            this._bears = new Array();
+            this._bearNum = 3;
+            this._buildBears();
             this.Main();
         };
         Play.prototype.Update = function () {
             var _this = this;
             this._plane.Update();
-            this._ocean.Update();
+            this._iceland.Update();
             this._island.Update();
             managers.Collision.check(this._plane, this._island);
-            this._clouds.forEach(function (cloud) {
-                cloud.Update();
-                managers.Collision.check(_this._plane, cloud);
+            this._bears.forEach(function (bear) {
+                bear.Update();
+                managers.Collision.check(_this._plane, bear);
             });
         };
         Play.prototype.Reset = function () {
@@ -59,15 +59,15 @@ var scenes;
         Play.prototype.Main = function () {
             console.log("Starting - PLAY SCENE");
             // adding the ocean to the scene
-            this.addChild(this._ocean);
+            this.addChild(this._iceland);
             // adding the island to the scene
             this.addChild(this._island);
             // adding the plane to the scene
             this.addChild(this._plane);
             // adding the cloud to the scene
-            for (var _i = 0, _a = this._clouds; _i < _a.length; _i++) {
-                var cloud = _a[_i];
-                this.addChild(cloud);
+            for (var _i = 0, _a = this._bears; _i < _a.length; _i++) {
+                var bear = _a[_i];
+                this.addChild(bear);
             }
             this.addChild(managers.Game.ScoreBoardManager.LivesLabel);
             this.addChild(managers.Game.ScoreBoardManager.ScoreLabel);

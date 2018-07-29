@@ -27,7 +27,7 @@
         ],
         
         "animations": {
-            "cloud": { "frames": [0] },
+            "bear": { "frames": [0] },
             "island": { "frames": [1] },
             "plane": { 
                 "frames": [2, 3, 4],
@@ -43,13 +43,18 @@
     let Manifest = [
         {id: "mainmenu", src:"/Assets/images/mainmenu.png"},
         {id: "playbutton", src:"/Assets/images/play.png"},
+        {id: "tutorial", src:"/Assets/images/tutorial.png"},
+        {id: "bear", src:"/Assets/images/bear.png"},
+        {id: "plane", src:"/Assets/images/plane.png"},
+        {id: "island", src:"/Assets/images/island.png"},
+        {id: "iceland", src:"/Assets/images/iceland.png"},
         {id: "textureAtlas", src:"/Assets/sprites/textureAtlas.png"},
-        {id: "ocean", src:"/Assets/images/ocean.gif"},
         {id: "yay", src:"/Assets/audio/yay.ogg"},
         {id: "thunder", src:"/Assets/audio/thunder.ogg"},
         {id: "engine", src:"/Assets/audio/engine.ogg"}
        
     ]
+
 
 
     function Init():void {

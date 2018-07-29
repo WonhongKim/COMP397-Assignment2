@@ -10,38 +10,38 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var objects;
 (function (objects) {
-    var Ocean = /** @class */ (function (_super) {
-        __extends(Ocean, _super);
+    var Iceland = /** @class */ (function (_super) {
+        __extends(Iceland, _super);
         /**
-         * Creates an instance of Ocean.
-         * @memberof Ocean
+         * Creates an instance of Iceland.
+         * @memberof Iceland
          */
-        function Ocean() {
-            var _this = _super.call(this, managers.Game.AssetManager.getResult("ocean")) || this;
+        function Iceland() {
+            var _this = _super.call(this, managers.Game.AssetManager.getResult("iceland")) || this;
             _this.Start();
             return _this;
         }
         // private methods
-        Ocean.prototype._checkBounds = function () {
+        Iceland.prototype._checkBounds = function () {
             // check top boundary
             if (this.y >= 0) {
                 this.Reset();
             }
         };
         // public methods
-        Ocean.prototype.Start = function () {
+        Iceland.prototype.Start = function () {
             this._verticalSpeed = 5; // 5 pixels per frame
             this.Reset();
         };
-        Ocean.prototype.Update = function () {
+        Iceland.prototype.Update = function () {
             this.y += this._verticalSpeed;
             this._checkBounds();
         };
-        Ocean.prototype.Reset = function () {
-            this.y = -960;
+        Iceland.prototype.Reset = function () {
+            this.y = -600;
         };
-        return Ocean;
+        return Iceland;
     }(createjs.Bitmap));
-    objects.Ocean = Ocean;
+    objects.Iceland = Iceland;
 })(objects || (objects = {}));
-//# sourceMappingURL=ocean.js.map
+//# sourceMappingURL=iceland.js.map
