@@ -27,27 +27,27 @@ var scenes;
         };
         // public methods
         Play.prototype.Start = function () {
-            this.engineSound = createjs.Sound.play("engine");
+            this.engineSound = createjs.Sound.play("mainBgm");
             this.engineSound.loop = -1;
-            this.engineSound.volume = 0.1;
-            this._plane = new objects.Plane();
-            this._island = new objects.Island();
+            this.engineSound.volume = 0.2;
+            this._hero = new objects.Hero();
+            this._point = new objects.Point();
             this._iceland = new objects.Iceland();
             // creates an empty array of type Cloud
             this._bears = new Array();
-            this._bearNum = 3;
+            this._bearNum = 5;
             this._buildBears();
             this.Main();
         };
         Play.prototype.Update = function () {
             var _this = this;
-            this._plane.Update();
+            this._hero.Update();
             this._iceland.Update();
-            this._island.Update();
-            managers.Collision.check(this._plane, this._island);
+            this._point.Update();
+            managers.Collision.check(this._hero, this._point);
             this._bears.forEach(function (bear) {
                 bear.Update();
-                managers.Collision.check(_this._plane, bear);
+                managers.Collision.check(_this._hero, bear);
             });
         };
         Play.prototype.Reset = function () {
@@ -61,9 +61,9 @@ var scenes;
             // adding the ocean to the scene
             this.addChild(this._iceland);
             // adding the island to the scene
-            this.addChild(this._island);
+            this.addChild(this._point);
             // adding the plane to the scene
-            this.addChild(this._plane);
+            this.addChild(this._hero);
             // adding the cloud to the scene
             for (var _i = 0, _a = this._bears; _i < _a.length; _i++) {
                 var bear = _a[_i];

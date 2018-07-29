@@ -10,17 +10,17 @@ var managers;
                 if (!object2.isColliding) {
                     object2.isColliding = true;
                     switch (object2.name) {
-                        case "island":
-                            var yaySound = createjs.Sound.play("yay");
-                            yaySound.volume = 0.1;
+                        case "point":
+                            var yaySound = createjs.Sound.play("pointup");
+                            yaySound.volume = 0.2;
                             managers.Game.ScoreBoardManager.Score += 100;
                             if (managers.Game.ScoreBoardManager.Score > managers.Game.ScoreBoardManager.HighScore) {
                                 managers.Game.ScoreBoardManager.HighScore = managers.Game.ScoreBoardManager.Score;
                             }
                             break;
                         case "bear":
-                            var thunderSound = createjs.Sound.play("thunder");
-                            thunderSound.volume = 0.1;
+                            var thunderSound = createjs.Sound.play("lifedown");
+                            thunderSound.volume = 0.2;
                             managers.Game.ScoreBoardManager.Lives -= 1;
                             // check if lives falls below 1
                             if (managers.Game.ScoreBoardManager.Lives <= 0) {

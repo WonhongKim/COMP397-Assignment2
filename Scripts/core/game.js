@@ -37,13 +37,15 @@
         { id: "playbutton", src: "/Assets/images/play.png" },
         { id: "tutorial", src: "/Assets/images/tutorial.png" },
         { id: "bear", src: "/Assets/images/bear.png" },
-        { id: "plane", src: "/Assets/images/plane.png" },
-        { id: "island", src: "/Assets/images/island.png" },
+        { id: "hero", src: "/Assets/images/hero.png" },
+        { id: "point", src: "/Assets/images/point.png" },
         { id: "iceland", src: "/Assets/images/iceland.png" },
         { id: "textureAtlas", src: "/Assets/sprites/textureAtlas.png" },
         { id: "yay", src: "/Assets/audio/yay.ogg" },
         { id: "thunder", src: "/Assets/audio/thunder.ogg" },
-        { id: "engine", src: "/Assets/audio/engine.ogg" }
+        { id: "mainBgm", src: "/Assets/audio/mainBGM.mp3" },
+        { id: "pointup", src: "/Assets/audio/point.wav" },
+        { id: "lifedown", src: "/Assets/audio/lifedown.wav" }
     ];
     function Init() {
         console.log("%c Assets Loading...", "font-weight:bold; font-size:20px; color: green;");
