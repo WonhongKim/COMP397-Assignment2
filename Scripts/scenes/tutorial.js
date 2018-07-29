@@ -10,36 +10,36 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var scenes;
 (function (scenes) {
-    var Start = /** @class */ (function (_super) {
-        __extends(Start, _super);
+    var Tutorial = /** @class */ (function (_super) {
+        __extends(Tutorial, _super);
         // constructors
-        function Start() {
+        function Tutorial() {
             var _this = _super.call(this) || this;
             _this.Start();
             return _this;
         }
         // private methods
         // public methods
-        Start.prototype.Start = function () {
-            this._startButton = new objects.Button("StartButton", config.Screen.HALF_WIDTH, 360, true);
+        Tutorial.prototype.Start = function () {
+            this._playButton = new objects.Button("StartButton", config.Screen.HALF_WIDTH, 360, true);
             this.Main();
         };
-        Start.prototype.Update = function () {
+        Tutorial.prototype.Update = function () {
         };
-        Start.prototype.Reset = function () {
+        Tutorial.prototype.Reset = function () {
         };
-        Start.prototype.Destroy = function () {
+        Tutorial.prototype.Destroy = function () {
             this.removeAllChildren();
         };
-        Start.prototype.Main = function () {
-            console.log("Starting - START SCENE");
-            this.addChild(this._startButton);
-            this._startButton.on("click", function () {
-                managers.Game.CurrentState = config.Scene.TUTORIAL;
+        Tutorial.prototype.Main = function () {
+            console.log("Tutorial - Tutorial");
+            this.addChild(this._playButton);
+            this._playButton.on("click", function () {
+                managers.Game.CurrentState = config.Scene.PLAY;
             }, this);
         };
-        return Start;
+        return Tutorial;
     }(objects.Scene));
-    scenes.Start = Start;
+    scenes.Tutorial = Tutorial;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=start.js.map
+//# sourceMappingURL=tutorial.js.map

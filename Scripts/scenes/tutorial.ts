@@ -1,10 +1,9 @@
 module scenes {
-    export class Start extends objects.Scene {
-        // member variables
-        
-        private _startButton: objects.Button;
-       
+    export class Tutorial extends objects.Scene{
 
+        // member variables
+        private _playButton: objects.Button;
+        
         // constructors
         constructor() {
             super();
@@ -17,15 +16,13 @@ module scenes {
         // public methods
         public Start():void {
 
-            
-            
-            this._startButton = new objects.Button("StartButton", config.Screen.HALF_WIDTH, 360, true);
-
+            this._playButton = new objects.Button("StartButton", config.Screen.HALF_WIDTH, 360, true);
+           
             this.Main();
         }
 
         public Update():void {
-           
+         
         }
 
         public Reset():void {
@@ -37,14 +34,16 @@ module scenes {
         }
 
         public Main():void {
-            console.log(`Starting - START SCENE`);
+            console.log(`Tutorial - Tutorial`);
             
            
-            this.addChild(this._startButton);
+            this.addChild(this._playButton);
 
-            this._startButton.on("click", function(){
-                managers.Game.CurrentState = config.Scene.TUTORIAL;
+            this._playButton.on("click", function(){
+                managers.Game.CurrentState = config.Scene.PLAY;
             }, this);
+          
         }
     }
+
 }
