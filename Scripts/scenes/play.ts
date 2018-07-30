@@ -3,12 +3,14 @@ module scenes {
         // member variables
       
         private _iceland:objects.Iceland;
-        private _point:objects.Point;
+        
         private _hero:objects.Hero;
        
         private _bears:objects.Bear[];
         private _bearNum:number;
        
+        private _point:objects.Point[];
+        private _pointNum:number;
         
         public engineSound:createjs.AbstractSoundInstance;
 
@@ -28,6 +30,13 @@ module scenes {
             }
         }
 
+        private _buildPoints():void {
+            for (let count = 0; count < this._pointNum; count++) {
+                this._point.push(new objects.Point());
+                //this._clouds[count] = new objects.Cloud();
+            }
+        }
+
         // public methods
         public Start():void {
             this.engineSound = createjs.Sound.play("mainBgm");
@@ -37,8 +46,13 @@ module scenes {
 
             
             this._hero = new objects.Hero();
-            this._point = new objects.Point();
             this._iceland = new objects.Iceland();
+
+            this._point = new  Array <objects.Point>();
+            this._pointNum = 2;
+
+            this._buildPoints();
+           
 
             // creates an empty array of type Cloud
             this._bears = new Array <objects.Bear>();
@@ -53,9 +67,14 @@ module scenes {
         public Update():void {
             this._hero.Update();
             this._iceland.Update();
-            this._point.Update();
+      
 
-            managers.Collision.check(this._hero, this._point);
+            this._point.forEach(point => {
+                point.Update();
+                managers.Collision.check(this._hero, point);
+            });
+
+           
 
             this._bears.forEach(bear => {
                 bear.Update();
@@ -80,7 +99,9 @@ module scenes {
             this.addChild(this._iceland);            
 
             // adding the island to the scene
-            this.addChild(this._point);
+            for (const point of this._point) {
+                this.addChild(point);
+            }
 
             // adding the plane to the scene
             this.addChild(this._hero);

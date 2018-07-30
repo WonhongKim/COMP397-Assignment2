@@ -25,14 +25,22 @@ var scenes;
                 //this._clouds[count] = new objects.Cloud();
             }
         };
+        Play.prototype._buildPoints = function () {
+            for (var count = 0; count < this._pointNum; count++) {
+                this._point.push(new objects.Point());
+                //this._clouds[count] = new objects.Cloud();
+            }
+        };
         // public methods
         Play.prototype.Start = function () {
             this.engineSound = createjs.Sound.play("mainBgm");
             this.engineSound.loop = -1;
             this.engineSound.volume = 0.2;
             this._hero = new objects.Hero();
-            this._point = new objects.Point();
             this._iceland = new objects.Iceland();
+            this._point = new Array();
+            this._pointNum = 2;
+            this._buildPoints();
             // creates an empty array of type Cloud
             this._bears = new Array();
             this._bearNum = 5;
@@ -43,8 +51,10 @@ var scenes;
             var _this = this;
             this._hero.Update();
             this._iceland.Update();
-            this._point.Update();
-            managers.Collision.check(this._hero, this._point);
+            this._point.forEach(function (point) {
+                point.Update();
+                managers.Collision.check(_this._hero, point);
+            });
             this._bears.forEach(function (bear) {
                 bear.Update();
                 managers.Collision.check(_this._hero, bear);
@@ -61,12 +71,15 @@ var scenes;
             // adding the ocean to the scene
             this.addChild(this._iceland);
             // adding the island to the scene
-            this.addChild(this._point);
+            for (var _i = 0, _a = this._point; _i < _a.length; _i++) {
+                var point = _a[_i];
+                this.addChild(point);
+            }
             // adding the plane to the scene
             this.addChild(this._hero);
             // adding the cloud to the scene
-            for (var _i = 0, _a = this._bears; _i < _a.length; _i++) {
-                var bear = _a[_i];
+            for (var _b = 0, _c = this._bears; _b < _c.length; _b++) {
+                var bear = _c[_b];
                 this.addChild(bear);
             }
             this.addChild(managers.Game.ScoreBoardManager.LivesLabel);

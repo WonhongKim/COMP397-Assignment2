@@ -4,8 +4,8 @@ module scenes {
         
         private _background: createjs.Bitmap;
         private _startButton: createjs.Bitmap;
-       
 
+      
         // constructors
         constructor() {
             super();
@@ -18,6 +18,7 @@ module scenes {
         // public methods
         public Start():void {
 
+       
                 
             this._background = new createjs.Bitmap(managers.Game.AssetManager.getResult("mainmenu"));
             this._startButton = new createjs.Bitmap(managers.Game.AssetManager.getResult("playbutton"));

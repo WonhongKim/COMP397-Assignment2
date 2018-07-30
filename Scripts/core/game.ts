@@ -53,7 +53,8 @@
         {id: "thunder", src:"/Assets/audio/thunder.ogg"},
         {id: "mainBgm", src:"/Assets/audio/mainBGM.mp3"},
         {id: "pointup", src:"/Assets/audio/point.wav"},
-        {id: "lifedown", src:"/Assets/audio/lifedown.wav"}
+        {id: "lifedown", src:"/Assets/audio/lifedown.wav"},
+    
        
     ]
 
