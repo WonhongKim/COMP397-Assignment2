@@ -54,6 +54,8 @@
         {id: "mainBgm", src:"/Assets/audio/mainBGM.mp3"},
         {id: "pointup", src:"/Assets/audio/point.wav"},
         {id: "lifedown", src:"/Assets/audio/lifedown.wav"},
+        {id: "gameover", src:"/Assets/images/gameover.png"},
+        {id: "retry", src:"/Assets/images/retry.png"}
     
        
     ]

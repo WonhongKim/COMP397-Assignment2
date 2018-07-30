@@ -1,8 +1,9 @@
 module scenes {
     export class End extends objects.Scene {
         // member variables
-        private _gameOverLabel: objects.Label;
-        private _restartButton: objects.Button;
+        private _gameover: createjs.Bitmap;
+        private _retry: createjs.Bitmap;
+
        // private _ocean: objects.Ocean;
 
         // constructors
@@ -18,8 +19,10 @@ module scenes {
         public Start():void {
            // this._ocean = new objects.Ocean();
 
-            this._gameOverLabel = new objects.Label("Game Over!", "80px", "Dock51", "#FFFF00", config.Screen.HALF_WIDTH, 160, true);
-            this._restartButton = new objects.Button("RestartButton", config.Screen.HALF_WIDTH, 360, true);
+           this. _gameover= new createjs.Bitmap(managers.Game.AssetManager.getResult("gameover"));
+            this._retry = new createjs.Bitmap(managers.Game.AssetManager.getResult("retry"));
+            this._retry.x = 320;
+            this._retry.y = 470;
 
             this.Main();
         }
@@ -41,11 +44,13 @@ module scenes {
 
            // this.addChild(this._ocean);
 
-            this.addChild(this._gameOverLabel);
+           this.addChild(this._gameover);
+            this.addChild(this._retry);
+           
             this.addChild(managers.Game.ScoreBoardManager.HighScoreLabel);
-            this.addChild(this._restartButton);
+           
 
-            this._restartButton.on("click", function(){
+            this._retry.on("click", function(){
                 managers.Game.ScoreBoardManager.Reset();
                 managers.Game.CurrentState = config.Scene.PLAY;
             }, this);
