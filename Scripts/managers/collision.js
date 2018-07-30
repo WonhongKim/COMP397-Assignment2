@@ -17,6 +17,26 @@ var managers;
                             if (managers.Game.ScoreBoardManager.Score > managers.Game.ScoreBoardManager.HighScore) {
                                 managers.Game.ScoreBoardManager.HighScore = managers.Game.ScoreBoardManager.Score;
                             }
+                            if (managers.Game.ScoreBoardManager.Score == 1000) {
+                                managers.Game.ScoreBoardManager.Lives += 1;
+                                var bounslifeSound = createjs.Sound.play("bounuslife");
+                                bounslifeSound.volume = 0.4;
+                            }
+                            if (managers.Game.ScoreBoardManager.Score == 2000) {
+                                managers.Game.ScoreBoardManager.Lives += 1;
+                                var bounslifeSound = createjs.Sound.play("bounuslife");
+                                bounslifeSound.volume = 0.4;
+                            }
+                            if (managers.Game.ScoreBoardManager.Score == 5000) {
+                                managers.Game.ScoreBoardManager.Lives += 1;
+                                var bounslifeSound = createjs.Sound.play("bounuslife");
+                                bounslifeSound.volume = 0.4;
+                            }
+                            if (managers.Game.ScoreBoardManager.Score == 10000) {
+                                managers.Game.ScoreBoardManager.Lives += 1;
+                                var bounslifeSound = createjs.Sound.play("bounuslife");
+                                bounslifeSound.volume = 0.4;
+                            }
                             break;
                         case "bear":
                             var thunderSound = createjs.Sound.play("lifedown");

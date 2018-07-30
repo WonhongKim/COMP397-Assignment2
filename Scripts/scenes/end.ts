@@ -19,7 +19,7 @@ module scenes {
         public Start():void {
            // this._ocean = new objects.Ocean();
 
-           this. _gameover= new createjs.Bitmap(managers.Game.AssetManager.getResult("gameover"));
+            this. _gameover= new createjs.Bitmap(managers.Game.AssetManager.getResult("gameover"));
             this._retry = new createjs.Bitmap(managers.Game.AssetManager.getResult("retry"));
             this._retry.x = 320;
             this._retry.y = 470;
