@@ -1,3 +1,5 @@
+// tutirial section.
+
 module scenes {
     export class Tutorial extends objects.Scene{
 

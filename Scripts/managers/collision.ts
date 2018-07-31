@@ -1,3 +1,5 @@
+// collision check & when charactor 
+
 namespace managers {
   export class Collision {
     public static check(

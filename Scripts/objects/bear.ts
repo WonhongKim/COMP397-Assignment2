@@ -1,3 +1,5 @@
+// bear object
+
 namespace objects {
     export class Bear extends objects.GameObject {
       // member variables

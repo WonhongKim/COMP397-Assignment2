@@ -1,8 +1,10 @@
+// hero object : player will control this charater 
+
 namespace objects {
     export class Hero extends objects.GameObject {
       
       /**
-       * Creates an instance of Plane.
+       * Creates an instance of Hero.
        * @memberof Hero
        */
       constructor() {
